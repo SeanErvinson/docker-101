@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  application:
+    image: busybox:latest
+    environment:
+      - NAME=SEAN ERVINSON
+    env_file:
+      - env/first.env
+      - env/second.env

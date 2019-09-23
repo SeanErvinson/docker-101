@@ -1,0 +1,14 @@
+FROM python3.7
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+
+RUN pip install pipenv
+COPY src/Pipfile src/Pipfile.lock /app
+RUN pipenv install --deploy --ignore-pipfile
+
+COPY . /app
+CMD ["pipenv", "run", "python", "src/app.py"]

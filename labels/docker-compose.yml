@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  application1:
+    image: nginx:latest
+    labels:
+      - "com.seanervinson.type=Server"
+
+  application2:
+    image: nginx:latest
+    labels:
+      - "com.seanervinson.type=Server"

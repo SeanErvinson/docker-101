@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+ application:
+  restart-policy: "no" # always # on-failure # unless-stopped
+  images: nginx:latest
+  ports:
+    - "8000:80"
