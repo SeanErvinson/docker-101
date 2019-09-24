@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: ../hello-world/
+      dockerfile: Dockerfile
+    volumes:
+      - ../hello-world/:/app

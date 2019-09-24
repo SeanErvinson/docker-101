@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  postgres_database:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - dbdata:/var/lib/postgres/data
+    networks:
+      - database_network
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: test_db
+
+volumes:
+  dbdata:
+
+# volumes:
+  # dbdata:
+  #   external:
+  #     name: outside_dbdata

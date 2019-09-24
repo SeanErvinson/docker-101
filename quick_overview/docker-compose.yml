@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  server:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    environment:
+      FIRST_ENV=123
+      SECOND_ENV=123
+    networks:
+      - testnetwork
+  test:
+    image: busybox:latest
+    ports:
+      - "9000:80"
+    environment:
+      FIRST_ENV=123
+    labels:
+      label.test: "TestLabel"
+    networks:
+      - testnetwork
+  application:
+    image: hello-world
+    command: ls -lah
+    restart: always
+    networks:
+      - testnetwork
+
+networks:
+  testnetwork:
